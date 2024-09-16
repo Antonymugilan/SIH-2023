@@ -1,0 +1,8 @@
+~Use case : Text summarization
+
+This project leverages the power of state-of-the-art language models from the Hugging Face Transformers library to create an intuitive and interactive text summarization and text-to-speech application. The primary dependencies include the "pipeline" module from Transformers for text summarization, Streamlit for the user interface, and the "gTTS" library for converting text summaries into speech.
+Firstly , our model receives a long paragraph (corpus) from the user , Then the model from the Hugging face  transformers library  processes the input text by calculates the highest probability word which comes next . The attention mechanism in this model assigns lower weights to the irrelevant words and  focusing on important content during the summarization process.And the tokens which has the lower weights gets neglected , displays the summarized text .The streamlit (application framework) displays our project  title "Recap-AI" . The area for the text input is provided navigated as "For Summarization" . The Generated title  for the summary is displayed followed by the summarized text . We added an additional feature which is an audio clip of the summarized text. This text-to-audio feature is available to the user only when the internet is available. Other than the audio feature , the summarization and title generation works without the internet.
+
+Abstract:
+
+This project leverages the power of state-of-the-art language models from the Hugging Face Transformers library. The primary dependencies include the "pipeline" module from Transformers for text summarization, Streamlit for the user interface, and the "gTTS" library for converting text summaries into speech.
