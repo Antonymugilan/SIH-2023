@@ -1,0 +1,37 @@
+from transformers import pipeline
+import streamlit as st
+from gtts import gTTS
+
+
+st.title('SUMMARIZATION . AI')
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+ARTICLE = st.text_area("For Summarization :")
+language = "en"
+
+if ARTICLE:
+    summary = summarizer(ARTICLE, max_length=150, min_length=30, do_sample=False)
+    title = summarizer(ARTICLE , max_length = 13 , min_length = 7, do_sample = False)
+    # Extract the summary text and title text
+    summary_text = summary[0]['summary_text']
+    title_text = title[0]['summary_text']
+
+
+    
+    #displaying the Summary and Title
+    st.subheader("Title:")
+    st.write(title_text)
+
+
+    st.subheader("Summary:")
+    st.write(summary_text)
+
+    #audio of the summary
+    speech = gTTS(text = summary_text, lang =  language ,slow = False , tld ="com.au")
+    speech.save("txt2spch.mp3")
+    st.subheader("Audio:")
+    st.audio("txt2spch.mp3")
+
+
+    
+    
